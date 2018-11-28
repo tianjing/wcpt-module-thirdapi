@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wcpt-module-thirdapi" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="wcpt-module-thirdapi" options="-verbose -bootclasspath D:/public/java/zulu8.33.0.1-jdk8.0.192-win_x64/jre/lib/rt.jar;D:/public/java/zulu8.33.0.1-jdk8.0.192-win_x64/jre/lib/jce.jar" />
+    </option>
+  </component>
+</project>
