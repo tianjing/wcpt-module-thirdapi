@@ -6,7 +6,9 @@ import tgtools.exceptions.APPErrorException;
 
 public class ThirdServiceTest {
     String vAppId = "6718AC63-5D41-431E-A077-FDAFDASFDAS";
-    String vIp = "192.168.1.130";
+    //String vIp = "172.17.3.106";
+    String vIp = "192.168.1.135";
+
     int vPort = 1340;
 
 
@@ -15,15 +17,53 @@ public class ThirdServiceTest {
         String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         vService.pushNotify("<a href='site:///core/client/goto?userId=1&url=http%253A%252F%252F192.168.88.211%253A1338%252Fbus%252Fclient%252Fautologin%253FuserId%253D1%2526url%253D%25252Fbus%25252Flzxd%25252Fsb.html%25253FidSet%25253D231232%252526orderPerson%25253D%25252525E7%2525252594%25252525B0%25252525E5%25252525BE%2525252584%252526orderTime%25253D1543398073754%252526orderUnit%25253D%25252525E6%25252525B1%252525259F%25252525E8%252525258B%252525258F%25252525E7%252525259C%2525252581%252526content%25253D%25252525E5%25252525A1%25252525AB%25252525E5%2525252586%2525252599%25252525E7%252525259A%2525252584%25252525E5%2525252586%2525252585%25252525E5%25252525AE%25252525B9%252526areaId%25253D0' target='_blank' class='a-link'>自定义内容</a>", 2);
-        vService.pushNotify("一个测试的应用消息", 1);
+        vService.pushNotify("一个site://测试的应用消息", 1);
     }
 
     @Test
-    public void pushUserNotify() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+    public void pushUserNotify1() throws APPErrorException {
+        String vUserId = "E5497306-F6D8-412C-83A8-2C7C3C17F412";
+        String vContent="<a href='site:///core/' target='_blank' class='a-link'>site变量</a>";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
-        vService.pushUserNotify("推送的内容", 1, vUserId);
+        vService.pushUserNotify(vContent, 2, vUserId);
     }
+    @Test
+    public void pushUserNotify2() throws APPErrorException {
+        String vUserId = "E5497306-F6D8-412C-83A8-2C7C3C17F412";
+        String vContent="<a href='http://__ip__:1340/core/' target='_blank' class='a-link'>__ip__变量</a>";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushUserNotify(vContent, 2, vUserId);
+    }
+    @Test
+    public void pushUserNotify3() throws APPErrorException {
+        String vUserId = "E5497306-F6D8-412C-83A8-2C7C3C17F412";
+        String vContent="<a href='http://@ip:1340/core/' target='_blank' class='a-link'>@ip变量</a>";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushUserNotify(vContent, 2, vUserId);
+    }
+    @Test
+    public void pushUserNotify4() throws APPErrorException {
+        String vUserId = "E5497306-F6D8-412C-83A8-2C7C3C17F412";
+        String vContent="<a href='http://@ip:@port/core/' target='_blank' class='a-link'>@ip:@port变量</a>";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushUserNotify(vContent, 2, vUserId);
+    }
+    @Test
+    public void pushUserNotify5() throws APPErrorException {
+        String vUserId = "E5497306-F6D8-412C-83A8-2C7C3C17F412";
+        String vContent="<a href='http://@httpHost/core/' target='_blank' class='a-link'>@httpHost1变量</a>";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushUserNotify(vContent, 2, vUserId);
+    }
+
+    @Test
+    public void pushUserNotify6() throws APPErrorException {
+        String vUserId = "C1218268-3D82-4BF0-A71C-2690EDE37CF0";
+        String vContent="<a href='http://www.baidu.com/?userId=@userId&loginName=@loginName&t=@time' target='_custom:open:chrome' class='a-link'>userId loginName time url变量 测试</a>";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushUserNotify(vContent, 2, vUserId);
+    }
+
 
     @Test
     public void listUser() throws APPErrorException {
