@@ -165,7 +165,7 @@ public class ThirdService {
 
 
     /**
-     * 根据角色ID 获取所有用户
+     * 根据机构ID 获取机构信息
      * @param pDeptId
      * @return
      * @throws APPErrorException
@@ -178,7 +178,8 @@ public class ThirdService {
     }
 
     /**
-     * 根据角色ID 获取所有用户
+     * 根据 用户ID 获取用户机构信息
+     * 注意：一个用户可能有多个机构
      * @param pUserId
      * @return
      * @throws APPErrorException
