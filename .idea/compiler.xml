@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="wcpt-module-thirdapi" options="-verbose -bootclasspath D:\public\java\zulu8.33.0.1-jdk8.0.192-win_x64\jre/lib/rt.jar;D:\public\java\zulu8.33.0.1-jdk8.0.192-win_x64\jre/lib/jce.jar" />
+      <module name="wcpt-module-thirdapi" options="-verbose -bootclasspath D:\public\java\zulu12.2.3-ca-jdk12.0.1-win_x64/lib/rt.jar;D:\public\java\zulu12.2.3-ca-jdk12.0.1-win_x64/lib/jce.jar" />
     </option>
   </component>
 </project>

@@ -148,6 +148,8 @@ public class ThirdService {
         return (ArrayNode) client.invoke("listRole", null);
     }
 
+
+
     /**
      * 根据角色ID 获取所有用户
      * @param pRoleId
@@ -162,6 +164,30 @@ public class ThirdService {
     }
 
 
+    /**
+     * 根据角色ID 获取所有用户
+     * @param pDeptId
+     * @return
+     * @throws APPErrorException
+     */
+    public ObjectNode getDept(String pDeptId) throws APPErrorException
+    {
+        ObjectNode vJson = Constants.JOSNMAPPER.createObjectNode();
+        vJson.put("id",pDeptId);
+        return (ObjectNode) client.invoke("getDept", vJson);
+    }
 
+    /**
+     * 根据角色ID 获取所有用户
+     * @param pUserId
+     * @return
+     * @throws APPErrorException
+     */
+    public ArrayNode getUserDept(String pUserId) throws APPErrorException
+    {
+        ObjectNode vJson = Constants.JOSNMAPPER.createObjectNode();
+        vJson.put("id",pUserId);
+        return (ArrayNode) client.invoke("getUserDept", vJson);
+    }
 
 }

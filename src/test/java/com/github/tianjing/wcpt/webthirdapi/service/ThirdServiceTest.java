@@ -1,6 +1,7 @@
 package com.github.tianjing.wcpt.webthirdapi.service;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Test;
 import tgtools.exceptions.APPErrorException;
 
@@ -67,42 +68,35 @@ public class ThirdServiceTest {
 
     @Test
     public void listUser() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user1 = vService.listUser();
     }
 
     @Test
     public void listOnlineUser() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user2 = vService.listOnlineUser();
     }
 
     @Test
     public void listAllUser() {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
-
     }
 
     @Test
     public void listDeptAllParent() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user3 = vService.listDeptAllParent("2A3287A6-6073-48F3-A096-8CD55E3D4A81-00104");
     }
 
     @Test
     public void listOmsAllParent() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user4 = vService.listOmsAllParent("04B1ED43-0FE8-434B-82D4-67F5E34CF536-47814");
     }
 
     @Test
     public void listSystemGroup() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user5 = vService.listSystemGroup();
 
@@ -110,22 +104,36 @@ public class ThirdServiceTest {
 
     @Test
     public void listGroupUser() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user6 = vService.listGroupUser("B3440F57-B5BB-49B6-B0D1-9819FE41F5EE");
     }
 
     @Test
     public void listRole() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user7 = vService.listRole();
     }
 
     @Test
     public void listRoleUser() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user8 = vService.listRoleUser("92BA4C35-1568-467A-9508-2B4AE4928546");
+    }
+
+
+    @Test
+    public void getDept() throws APPErrorException {
+        String vDeptId = "0EB86ACB-FBDE-4F5F-801A-4BDE97BAA440-00005";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        ObjectNode user8 = vService.getDept(vDeptId);
+        System.out.println(user8);
+    }
+
+    @Test
+    public void getUserDept() throws APPErrorException {
+        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        ArrayNode user8 = vService.getUserDept(vUserId);
+        System.out.println(user8);
     }
 }
