@@ -191,4 +191,29 @@ public class ThirdService {
         return (ArrayNode) client.invoke("getUserDept", vJson);
     }
 
+    /**
+     * 根据 inst id 获取 网厂用户信息
+     * @param pInstId
+     * @return
+     * @throws APPErrorException
+     */
+    public ArrayNode listUserByInstId(String pInstId) throws APPErrorException
+    {
+        ObjectNode vJson = Constants.JOSNMAPPER.createObjectNode();
+        vJson.put("instId",pInstId);
+        return (ArrayNode) client.invoke("listUserByInstId", vJson);
+    }
+
+    /**
+     * 根据 机构ID 获取 网厂用户信息
+     * @param pDeptId
+     * @return
+     * @throws APPErrorException
+     */
+    public ArrayNode listUserByDeptId(String pDeptId) throws APPErrorException
+    {
+        ObjectNode vJson = Constants.JOSNMAPPER.createObjectNode();
+        vJson.put("id",pDeptId);
+        return (ArrayNode) client.invoke("listUserByDeptId", vJson);
+    }
 }

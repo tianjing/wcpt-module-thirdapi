@@ -22,6 +22,14 @@ public class ThirdServiceTest {
     }
 
     @Test
+    public void pushNotify2() throws APPErrorException {
+        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushNotify("一个测试弹窗的应用消息", 3);
+    }
+
+
+    @Test
     public void pushUserNotify1() throws APPErrorException {
         String vUserId = "E5497306-F6D8-412C-83A8-2C7C3C17F412";
         String vContent="<a href='site:///core/' target='_blank' class='a-link'>site变量</a>";
@@ -63,6 +71,14 @@ public class ThirdServiceTest {
         String vContent="<a href='http://www.baidu.com/?userId=@userId&loginName=@loginName&t=@time' target='_custom:open:chrome' class='a-link'>userId loginName time url变量 测试</a>";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         vService.pushUserNotify(vContent, 2, vUserId);
+    }
+
+    @Test
+    public void pushUserNotify7() throws APPErrorException {
+        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+        String vContent="一个测试弹窗的应用消息";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        vService.pushUserNotify(vContent, 3, vUserId);
     }
 
 
@@ -134,6 +150,23 @@ public class ThirdServiceTest {
         String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user8 = vService.getUserDept(vUserId);
+        System.out.println(user8);
+    }
+
+
+    @Test
+    public void listUserByInstId() throws APPErrorException {
+        String vInstId = "15205383";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        ArrayNode user8 = vService.listUserByInstId(vInstId);
+        System.out.println(user8);
+    }
+
+    @Test
+    public void listUserByDeptId() throws APPErrorException {
+        String vDeptId = "F104A09B-F4C9-4A36-A19E-CBA67775B641-00312";
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        ArrayNode user8 = vService.listUserByDeptId(vDeptId);
         System.out.println(user8);
     }
 }
