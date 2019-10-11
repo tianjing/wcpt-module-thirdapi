@@ -84,9 +84,10 @@ public class ThirdService {
      * @return
      * @throws APPErrorException
      */
-    public ArrayNode listAllUser() throws APPErrorException {
+    public ArrayNode listAllUser(int pPageIndex) throws APPErrorException {
         ObjectNode vJson = Constants.JOSNMAPPER.createObjectNode();
-        return (ArrayNode) client.invoke("listAllUser", null);
+        vJson.put("pageIndex",pPageIndex);
+        return (ArrayNode) client.invoke("listAllUser", vJson);
     }
 
     /**
