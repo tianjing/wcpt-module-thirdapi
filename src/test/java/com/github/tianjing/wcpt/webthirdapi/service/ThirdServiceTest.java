@@ -6,13 +6,17 @@ import org.junit.Test;
 import tgtools.exceptions.APPErrorException;
 
 public class ThirdServiceTest {
-    String vAppId = "6718AC63-5D41-431E-A077-FDAFDASFDAS";
+    String vAppId = "E75CBE45-8BCF-4889-8D80-D41DFFA2E247";
     //String vIp = "172.17.3.106";
-    //String vIp = "192.168.1.135";
-    String vIp = "192.168.88.1";
-
-    int vPort = 1347;
-
+    String vIp = "192.168.1.137";
+    //String vIp = "192.168.88.1";
+    //String vIp = "172.17.3.106";
+    int vPort = 1340;
+    static{
+      //  System.setProperty("http.proxySet", "true");
+      //  System.setProperty("http.proxyHost", "127.0.0.1");
+      //  System.setProperty("http.proxyPort", "8888");
+    }
 
     @Test
     public void pushNotify() throws APPErrorException {
@@ -88,6 +92,31 @@ public class ThirdServiceTest {
     }
 
     @Test
+    public void pushUserNotify9() throws APPErrorException {
+        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+        String vContent="{\n" +
+                "  \"index\": 0,\n" +
+                "  \"cmd\": 0,\n" +
+                "  \"sessionId\": \"8E58FBDD-C2EF-4396-A816-4FE23AD30167\",\n" +
+                "  \"content\": {\n" +
+                "    \"css\": \"background-color:rgba(0,0,0,0.7);color:#fff;font-size:35px;font-family: 微软雅黑;\",\n" +
+                "    \"x\": 0,\n" +
+                "    \"y\": 50,\n" +
+                "    \"text\": \"<div style='color:blue;width:100%;text-align:left;height:35px;margin-bottom: 10px;'>闫朝阳:你好，东善桥演习刘伟；事故汇报：13: 41 东善桥1号主变跳闸，经检查为网络遭受恶意代码攻击，导致1号主变主保护动作，已汇报华东网调。</div>\",\n" +
+                "    \"height\": 500\n" +
+                "  }\n" +
+                "}";
+
+        ThirdService vService = new ThirdService(vAppId, vIp, vPort);
+        try {
+            vService.pushUserNotify(new String(vContent.getBytes("utf-8"), "GB2312"), 5, vUserId);
+        }catch (Throwable e)
+        {}
+    }
+
+
+
+    @Test
     public void listUser() throws APPErrorException {
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user1 = vService.listUser();
@@ -161,7 +190,8 @@ public class ThirdServiceTest {
 
     @Test
     public void getUserDept() throws APPErrorException {
-        String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+        //String vUserId = "15fc352f-409b-42be-be24-c3289d755711";
+        String vUserId = "5c0814f4-1c02-4d09-a0f9-9fe020529a54";
         ThirdService vService = new ThirdService(vAppId, vIp, vPort);
         ArrayNode user8 = vService.getUserDept(vUserId);
         System.out.println(user8);

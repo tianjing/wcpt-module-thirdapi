@@ -6,7 +6,7 @@
 
     <groupId>com.github.tianjing</groupId>
     <artifactId>wcpt-module-thirdapi</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.7</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/tianjing/wcpt-module-thirdapi</url>
@@ -39,12 +39,17 @@
         <dependency>
             <groupId>com.github.tianjing</groupId>
             <artifactId>tgtools.core</artifactId>
-            <version>RELEASE</version>
+            <version>1.2.3</version>
         </dependency>
         <dependency>
             <groupId>com.github.tianjing</groupId>
             <artifactId>tgtools.web</artifactId>
-            <version>RELEASE</version>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.10</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

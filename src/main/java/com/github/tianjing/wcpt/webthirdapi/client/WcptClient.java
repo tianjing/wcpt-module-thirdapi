@@ -89,7 +89,7 @@ public class WcptClient {
     protected WebClient getWebClient(String pUrl) {
         WebClient vWebClient = new WebClient();
         vWebClient.setUrl(pUrl);
-        vWebClient.setContentType("application/json");
+        vWebClient.setContentType("application/json;");
         vWebClient.setMethod("POST");
         return vWebClient;
     }
